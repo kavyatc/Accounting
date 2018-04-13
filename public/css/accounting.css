@@ -1,0 +1,7 @@
+ .checkboxcontainer { 
+        border:2px solid #ccc; 
+        width:325px; 
+        height: 94px; 
+        overflow-y: scroll;    
+        padding-left: 5px; 
+    } 

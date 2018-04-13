@@ -18,6 +18,8 @@
   <!-- AdminLTE Skins. -->
   <link rel="stylesheet" href="{{ asset('adminlte/css/skins/skin-blue.min.css') }}">
 
+  <link rel="stylesheet" href="{{ asset('css/accounting.css') }}">
+
   @yield('css')
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -141,19 +143,19 @@ desired effect
         @admin
 
         <!-- Accounting -->    
-        <li><a href=""><i class="fa fa-users"></i> <span>@lang('Party')</span></a></li>
+        <li><a href="{{ route('party.index') }}"><i class="fa fa-users"></i> <span>@lang('Party')</span></a></li>
 
         @include('back.partials.treeview', [
           'icon' => 'file-text',
           'type' => 'account',
           'items' => [
             [
-              'route' => '',
+              'route' => route('account_ledger.index'),
               'command' => 'account_ledger',
               'color' => 'green',
             ],
             [
-              'route' => '',
+              'route' => route('cash_book.index'),
               'command' => 'cash_book',
               'color' => 'blue',
             ],
@@ -181,17 +183,17 @@ desired effect
           'type' => 'master',
           'items' => [
             [
-              'route' => '',
+              'route' => route('currency.index'),
               'command' => 'currency',
               'color' => 'green',
             ],
             [
-              'route' => '',
+              'route' => route('city.index'),
               'command' => 'city',
               'color' => 'orange',
             ],
             [
-              'route' => '',
+              'route' => route('bank.index'),
               'command' => 'bank',
               'color' => 'blue',
             ],

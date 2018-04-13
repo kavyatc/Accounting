@@ -64,14 +64,14 @@
 				<li {{ currentRoute('home') }}>
 					<a href="{{ route('home') }}">@lang('Home')</a>
 				</li>
-				<!-- <li class="has-children">
+				<li class="has-children">
 					<a href="#">@lang('Categories')</a>
 					<ul class="sub-menu">
 						@foreach ($categories as $category)
 							<li><a href="{{ route('category', [$category->slug ]) }}">{{ $category->title }}</a></li>
 						@endforeach
 					</ul>
-				</li> -->
+				</li>
 				@guest
 					<li {{ currentRoute('contacts.create') }}>
 						<a href="{{ route('contacts.create') }}">@lang('Contact')</a>
@@ -158,7 +158,7 @@
 
 	            <h4>@lang('About Our Site')</h4>
 
-	               <p>@lang('On this website, you will find information about Accounting Website.')</p>
+	               <p>@lang('On this website, you will find information about Personal accounting Website.Personal accounting is an option for smaller companies or individuals, who would like to maximize their financial income.')</p>
 
 		      </div> <!-- end footer-info -->
 

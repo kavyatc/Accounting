@@ -72,11 +72,20 @@ Route::prefix('admin')->namespace('Back')->group(function () {
 
     Route::middleware('admin')->group(function () {
        
-        // Task Management        
-        Route::resource('employees', 'EmployeeController', ['except' => 'show']);
-        Route::resource('task', 'TaskController', ['except' => 'show']);
-        Route::resource('employee_task', 'EmployeeTaskController', ['except' => 'show']);
-        Route::resource('report', 'ReportController', ['only' => 'index']);
+        // ==================Accounting======================        
+        Route::resource('party', 'PartyController', ['except' => 'show']);
+        Route::resource('account_ledger', 'AccountLedgerController', ['except' => 'show']);
+        Route::resource('cash_book', 'CashBookController', ['except' => 'show']);
+        Route::resource('bank_book', 'BankBookController', ['except' => 'show']);
+        Route::resource('trial_balance', 'TrialBalanceController', ['except' => 'show']);
+        Route::resource('balance_sheet', 'BalanceSheetController', ['except' => 'show']);
+        
+
+        Route::resource('currency', 'CurrencyController', ['except' => 'show']);
+        Route::resource('city', 'CityController', ['except' => 'show']);
+        Route::resource('bank', 'BankController', ['except' => 'show']);
+
+        // ==================Accounting======================   
 
         // Users
         Route::name('users.seen')->put('users/seen/{user}', 'UserController@updateSeen');

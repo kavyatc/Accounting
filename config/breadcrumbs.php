@@ -21,17 +21,53 @@ return [
         'icon' => 'users',
         'url' => '/admin/party',
     ],
-     'accounts' =>
+     'account_ledger' =>
     [
-        'name' => 'accounts',
+        'name' => 'account_ledger',
         'icon' => 'users',
-        'url' => '/admin/accounts',
+        'url' => '/admin/account_ledger',
     ],
-     'masters' =>
+     'cash_book' =>
     [
-        'name' => 'masters',
+        'name' => 'cash_book',
         'icon' => 'users',
-        'url' => '/admin/masters',
+        'url' => '/admin/cash_book',
+    ],
+      'bank_book' =>
+    [
+        'name' => 'bank_book',
+        'icon' => 'users',
+        'url' => '/admin/bank_book',
+    ],
+      'trial_balance' =>
+    [
+        'name' => 'trial_balance',
+        'icon' => 'users',
+        'url' => '/admin/trial_balance',
+    ],
+      'balance_sheet' =>
+    [
+        'name' => 'balance_sheet',
+        'icon' => 'users',
+        'url' => '/admin/balance_sheet',
+    ],
+      'currency' =>
+    [
+        'name' => 'currency',
+        'icon' => 'users',
+        'url' => '/admin/currency',
+    ],
+     'city' =>
+    [
+        'name' => 'city',
+        'icon' => 'users',
+        'url' => '/admin/city',
+    ],
+     'bank' =>
+    [
+        'name' => 'bank',
+        'icon' => 'users',
+        'url' => '/admin/bank',
     ],
      'posts' =>
     [

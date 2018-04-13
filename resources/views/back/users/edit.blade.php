@@ -81,38 +81,3 @@
     <!-- /.row -->
 @endsection
 
-
-
-
-                <!--  <select name="age">
-  <option value="0">Under 18</option>
-  <option value="1">19 to 30</option>
-  <option value="2">Over 30</option>
-</select>
-Or you can use associative arrays.
-
-{{ Form::select('age', [
-   'young' => 'Under 18',
-   'adult' => '19 to 30',
-   'adult2' => 'Over 30']
-) }}
- -->
-
-                 {!! Form::label('priority', 'Priority') !!}                
-                 {!! Form::select('priority_id',[
-                 '1'                        => 'High',
-                 '2'                        => 'Normal',
-                 '3'                        => 'Low']
-                 ,isset($project_task)?{{
-                                        $project_task->priority_id ==='1'? 'selected':''}}:1, [
-                 'class'                        => 'form-control',
-                 'required'                     => 'required' 
-                 ]) !!}
-
-
-
-                  <select class="form-control" name="role" id="role">
-                                <option value="admin" {{ old('role', $user->role) === 'admin' ? 'selected' : '' }}>@lang('Administrator')</option>
-                                <option value="redac" {{ old('role', $user->role) === 'redac' ? 'selected' : '' }}>@lang('Redactor')</option>
-                                <option value="user" {{ old('role', $user->role) === 'user' ? 'selected' : '' }}>@lang('User')</option>
-                            </select>

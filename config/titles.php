@@ -12,23 +12,46 @@ return [
 
     'admin' => 'dashboard',
     
-    'employees' => [
-        'index' => 'employeesGestion',
-        'create' => 'employeeCreate',
-        'edit' => 'employeeEdit',
+    'party' => [
+        'index' => 'partyGestion',
+        'create' => 'partyCreate',
+        'edit' => 'partyEdit',
     ],
-    'task' => [
-        'index' => 'taskGestion',
-        'create' => 'taskCreate',
-        'edit' => 'taskEdit',
+    'account_ledger' => [
+        'index' => 'account_ledgerGestion',
+        'create' => 'account_ledgerCreate',
+        'edit' => 'account_ledgerEdit',
     ],
-    'employee_task' => [
-        'index' => 'employee_taskGestion',
-        'create' => 'employee_taskCreate',
-        'edit' => 'employee_taskEdit',
+    'cash_book' => [
+        'index' => 'cash_bookGestion',
+        'create' => 'cash_bookCreate',
+        'edit' => 'cash_bookEdit',
     ],
-    'report' => [
-        'index' => 'reportGestion',
+    'bank_book' => [
+        'index' => 'bank_bookGestion',
+        'create' => 'bank_bookCreate',
+        'edit' => 'bank_bookEdit',
+    ],    
+    'trial_balance' => [
+        'index' => 'trial_balanceGestion',
+    ],
+    'balance_sheet' => [
+        'index' => 'balance_sheetGestion',
+    ],
+    'currency' => [
+        'index' => 'currencyGestion',
+        'create' => 'currencyCreate',
+        'edit' => 'currencyEdit',
+    ],
+    'city' => [
+        'index' => 'cityGestion',
+        'create' => 'cityCreate',
+        'edit' => 'cityEdit',    
+    ],
+    'bank' => [
+        'index' => 'bankGestion',
+        'create' => 'bankCreate',
+        'edit' => 'bankEdit',    
     ],
     'users' => [
         'index' => 'usersGestion',

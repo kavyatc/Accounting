@@ -20,7 +20,6 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // dd('hello');
         $pannels = [];
 
         foreach (config('pannels') as $pannel) {
@@ -31,8 +30,6 @@ class AdminController extends Controller
                 $pannels[] = $panelAdmin;
             }
         }
-
-        // dd($pannels);
 
         return view('back.index', compact('pannels'));
     }
