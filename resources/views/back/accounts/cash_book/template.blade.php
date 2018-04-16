@@ -54,6 +54,7 @@
                  'maxlength'                    => 16,
                  'onkeypress'                   => "return isNumberKey(event);"
                  ]) !!}  
+               <!--   {!! $errors->first('amount', '<small class="help-block" style="color:red">:message</small>') !!}  -->
                 </div> 
 
                 <div class="col-md-4">  

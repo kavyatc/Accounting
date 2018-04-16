@@ -20,7 +20,8 @@ class AccountLedgerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {                   
+    {                  
+
        $treeView = AccountGroup::with(['account_subgroups'])->get();
 
        $account_ledgerdetails = AccountLedger::get();  

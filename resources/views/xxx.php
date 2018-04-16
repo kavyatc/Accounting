@@ -1,3 +1,15 @@
+->select('shares.id AS share_id', 'users.id AS user_id', 'shares.connected_user_id',    
+  'shares.original_language_id', 'shares.image',
+  'users.first_name', 'users.last_name', 'users.email',
+  'locations.city', 'provinces.name', 'countries.code',
+  'locations.lat', 'locations.lng',
+  'shares.created_at',
+  DB::raw('(CASE WHEN users.id = ' . $user . ' THEN 1 ELSE 0 END) AS is_user')
+  )
+->orderBy('shares.created_at', 'desc')
+
+
+
 
         @section('content')
 @if (isset($navigations)) 

@@ -3,7 +3,7 @@
 @section('css')
     <link rel="stylesheet" href="//cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css">
 
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 
     <style>
         input, th span {
@@ -32,81 +32,33 @@
             @endif
             <div class="box">
 
-              <!--  search options -->               
-               <div class="box-header with-border">
-
-                     {!!Form::open(['id'=> 'search','method' => 'GET','route' => ['cash_book.index'], 'class' => 'form width88' ]) !!}   
-
-                    <div class="col-md-5">
-                     {!! Form::label('cashaccount_id', 'Cash Account') !!}  
-                    </div>  
-
-                     <div class="col-md-2">
-                     {!! Form::label('fromdate', 'From date') !!}  
-                    </div>   
-
-                     <div class="col-md-2">
-                     {!! Form::label('todate', 'To date') !!}  
-                    </div>     
-                    <div class="clearfix"></div> 
-
-                    <div class="col-md-5">                      
-                     {!! Form::select('account_ledeger_id', $account_ledger_lists,null, [
-                     'class'                        => 'form-control',
-                     'required'                     => 'required' 
-                     ]) !!} 
-                    </div>
-                    
-                    <div class="col-md-2">                       
-                     {!! Form::date('fromdate', today(), [
-                     'class'                        => 'form-control date-picker',
-                     'required'                     => 'required' 
-                     ]) !!}                     
-                    </div>  
-
-                    <div class="col-md-2">                      
-                     {!! Form::date('todate', today(), [
-                     'class'                        => 'form-control date-picker',
-                     'required'                     => 'required' 
-                     ]) !!}                       
-                    </div>     
-
-
-                     {!! Form::submit('Search', [ 
-                     'class'                        => 'btn btn-default search-bar-btn'
-                     ]) !!}  
-
-                     {!! Form::close() !!}                   
-                   
-                </div>
-
                 <div class="box-body table-responsive">
                     <table id="cash_book" class="table table-striped table-bordered">
                         <thead>
                         <tr>
+                            <th>#</th>
                             <th>@lang('V/R No.')</th>
-                            <th>@lang('Date')</th>
-                            <th>@lang('')</th> 
-                            <th>@lang('Details')</th>
+                            <th>@lang('Account Date')</th>
                             <th>@lang('Cur.')</th>
-                            <th>@lang('Receipt Amt In ' . $defaCurrency)</th>
-                            <th>@lang('Pay Amt In ' . $defaCurrency)</th>
-                            <th>@lang('Balance In ' . $defaCurrency)</th>
-                            <th>@lang('')</th>                                      
+                            <th>@lang('Amount ' . $defaCurrency)</th>
+                            <th>@lang('')</th>
+                            <th>@lang('Party')</th>
+                            <th>@lang('Cash Account')</th>
+                            <th>@lang('narration')</th>                                      
                             <th width="75px">@lang('Action')</th>
                         </tr>
                         </thead>
                         <tfoot>
                         <tr>
+                            <th>#</th>
                             <th>@lang('V/R No.')</th>
-                            <th>@lang('Date')</th>
-                            <th>@lang('')</th> 
-                            <th>@lang('Details')</th>
+                            <th>@lang('Account Date')</th>
                             <th>@lang('Cur.')</th>
-                            <th>@lang('Receipt Amt In ' . $defaCurrency)</th>
-                            <th>@lang('Pay Amt In ' . $defaCurrency)</th>
-                            <th>@lang('Balance In ' . $defaCurrency)</th>
-                            <th>@lang('')</th>                                  
+                            <th>@lang('Amount ' . $defaCurrency)</th>
+                            <th>@lang('')</th>
+                            <th>@lang('Party')</th>
+                            <th>@lang('Cash Account')</th>
+                            <th>@lang('narration')</th>                                   
                             <th></th>
                         </tr>
                         </tfoot>
@@ -169,9 +121,9 @@
 
         $(document).ready(cash_book.onReady)
 
-        /*$(document).ready( function () {
+        $(document).ready( function () {
         $('#cash_book').DataTable();
-        } );*/
+        } );
 
     </script>
 

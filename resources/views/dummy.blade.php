@@ -1,3 +1,172 @@
+     <!-- <div class="col-md-5">
+                     {!! Form::label('cashaccount_id', 'Cash Account') !!}  
+                    </div>  --> 
+                    
+   <!--  <div class="col-md-5">                      
+                     {!! Form::select('account_ledeger_id', $account_ledger_lists,null, [
+                     'class'                        => 'form-control',
+                     'required'                     => 'required' 
+                     ]) !!} 
+                    </div> -->
+
+
+
+
+       /*------------------------------Cash Book------------------------*/     
+
+     /* $cash_bookdetails = CashBook::Where('cashaccount_id',$request->account_ledeger_id)
+                                    ->whereDate('accountdate', '>=', $request->fromdate)
+                                    ->whereDate('accountdate', '<=', $request->todate)
+                                    ->get(); */
+        
+       }
+     /*
+        if($search_data =="Y")
+        {
+           dd($search_data);
+        }
+       */
+       
+ /* $opening_balance = DB::select("Select '' As voucherno
+                          ,now() As accountdate 
+                          ,'' As trans_type 
+                          ,'Opening Balance' As details 
+                          ,'INR' As currency_code  
+                          ,0.00 As recieptamt  
+                          ,0.00 As payamt  
+                          ,sum(openbalamt) AS balance
+                          ,Case when SUM(openbalamt) < 0 then 'Cr' else 'Dr' end AS balancetype
+                          From  ({$opBalCombine->toSql()}) AS t 
+                          ",$opBalCombine->getBindings());
+*/
+
+ print_r($closing_baltype);exit();
+
+
+ <tr>   
+        <td>{{ $openingbalancedata->voucherno }}</td>
+        <td>{{ $openingbalancedata->accountdate }}</td>
+        <td>{{ $openingbalancedata->trans_type }}</td>
+        <td>{{ $openingbalancedata->details }}</td>
+        <td>{{ $openingbalancedata->currency_code }}</td>
+        <td class="text-right">{{ $openingbalancedata->recieptamt }}</td>
+        <td class="text-right">{{ $openingbalancedata->payamt }}</td>
+        <td class="text-right">{{ $openingbalancedata->balance }}</td>
+        <td>{{ $openingbalancedata->balancetype }}</td>
+    </tr>
+
+    
+/*$Cashreciept = CashBook::select('voucherno AS voucherno',
+                              DB::raw('CASE WHEN trans_type = "CPY" THEN amount
+                                      ELSE 0.00
+                                    END AS Payamt'))
+                        ->Where('cashaccount_id',$request->account_ledeger_id)
+                        ->get();*/
+
+    
+     
+
+    /*  $opening_balance = DB::select("Select '' As voucherno
+                          ,now() As accountdate 
+                          ,'' As trans_type 
+                          ,'Opening Balance' As details 
+                          ,'INR' As currency_code  
+                          ,0.00 As recieptamt  
+                          ,0.00 As payamt  
+                          ,sum(openbalamt) AS balance
+                          ,Case when SUM(openbalamt) < 0 then 'Cr' else 'Dr' end AS balancetype
+                          From  ({$opBalCombine->toSql()}) AS t 
+                          ",$opBalCombine->getBindings());*/
+ 
+       /*------------------------------Opening Balance------------------------*/                                 
+       /*------------------------------Cash Book------------------------*/
+
+   /*  $Cashreciept = CashBook::select('voucherno AS voucherno',
+                                        'accountdate AS accountdate',
+                                        'trans_type AS trans_type',
+                                        'narration AS details',
+                                        'currency_code AS currency_code',
+                                        'amount AS recieptamt'
+                                         )->get();
+*/
+
+       /*  $cashbookreciept = CashBook::select('voucherno AS voucherno'
+                                             ',accountdate AS accountdate' 
+                                             ',trans_type AS trans_type' 
+                                             ',narration AS details 
+                                             ,currency_code AS currency_code  
+                                             ,amount AS recieptamt  
+                                             ,0.00 AS payamt  
+                                             ,0.00 AS balance
+                                             ,Cr AS balancetype')
+                                      ->Where('cashaccount_id',$request->account_ledeger_id)
+                                      ->Where('trans_type','CPY')
+                                      ->whereDate('accountdate', '>=', $request->fromdate)
+                                      ->whereDate('accountdate', '<=', $request->todate)
+                                      ->get(); */
+
+         /* dd($cashbookreciept);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// assuming you have an eloquent model Ticket, for presentation
+$countTickets = new \Sofa\Eloquence\Subquery(
+    Ticket::from('dental_support_tickets as t')
+        ->selectRaw('count(t.id)')->whereRaw('t.category_id=c.id')->where('t.status', '0'),
+    'num_tickets' // alias
+);
+
+// now let's use query builder
+$countAdmins = new \Sofa\Eloquence\Subquery(
+    DB::table('dental_support_category_admin as a')
+        ->selectRaw('count(a.id)')->whereRaw('a.category_id=c.id'), 
+    'num_admins' // alias
+);
+
+// finally eloquent result
+Category::from('dental_support_categories as c')
+        ->select('c.*', $countTickets, $countAdmins)
+        ->addBinding($countTickets->getBindings(), 'select')
+        ->where('c.status', 0)
+        ->orderBy('c.title', 'asc')
+        ->paginate()
+
+
+
+        
+/* lstrOpnBal = " Select 1 As SortOrdr, 0 As UID, '' As PLinkID, '' As VocherRecptNo," & _
+                     " null As EntryDate, CAST(CONVERT(DATETIME,'" & lstrFromDate.ToString.Trim & "',103) As Date) As AccntDate," & _
+                     " '' As PartyID, '' As TransType, 'Opening Balance' As Details," & _
+                     " 'AED' As Curncy, null As RecptAmt, null As PaymntAmt," & _
+                     " Abs(isnull(SUM(cramt),0)) As Balance, " & _
+                     " CrDr = Case when isnull(SUM(cramt),0) < 0 then 'Cr' else 'Dr' end, 'X' As ToByType " & _
+                     " From ( "*/
+
+  /*$Final = DB::select("Select sum(openbalamt) AS balance
+                          From  ({$opening_balance->toSql()}) AS t 
+                          ",$opening_balance->getBindings());
+*/
+
      $opening_balance = CashBook::select('sum(amount) AS openbalamt')
                                      ->Where('cashaccount_id',$request->account_ledeger_id)
                                      ->whereDate('accountdate', '>=', Carbon::parse('first day of January'))

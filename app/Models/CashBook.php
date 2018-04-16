@@ -76,8 +76,7 @@ class CashBook extends Model
      */
 	public function parties_account()
 	{
-		return $this->hasOne(Party::class,'id','account_party_id')
-                    ->where('account_party_type','P');		
+		return $this->hasOne(Party::class,'id','account_party_id');
 	}	
 
     /**
@@ -87,8 +86,7 @@ class CashBook extends Model
      */
     public function accountledgers_account()
     {
-        return $this->hasOne(AccountLedger::class,'id','account_party_id')
-                    ->where('account_party_type','A');      
+        return $this->hasOne(AccountLedger::class,'id','account_party_id');
     }   
     /**
      * Many to Many relation

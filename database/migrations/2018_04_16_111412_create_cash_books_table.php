@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBankBooksTable extends Migration
+class CreateCashBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBankBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('bank_books', function (Blueprint $table) {
+        Schema::create('cash_books', function (Blueprint $table) {
             $table->increments('id');
             $table->string('trans_type', 3);
             $table->string('voucherno', 10);
@@ -22,10 +22,7 @@ class CreateBankBooksTable extends Migration
             $table->decimal('amount', 16, 2)->default(0.00);
             $table->string('account_party_type', 1);  
             $table->integer('account_party_id')->unsigned();
-            $table->integer('bankaccount_id')->unsigned();   
-            $table->integer('bank_id')->unsigned()->nullable();  
-            $table->bigInteger('chequeno')->nullable();
-            $table->datetime('chequedate')->nullable();   
+            $table->integer('cashaccount_id')->unsigned();                    
             $table->text('narration')->nullable();
             $table->timestamps();
             $table->timestamp('deleted_at')->nullable();
@@ -39,6 +36,6 @@ class CreateBankBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank_books');
+        Schema::dropIfExists('cash_books');
     }
 }
